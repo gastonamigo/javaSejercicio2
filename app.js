@@ -38,6 +38,8 @@ producto = parseInt(producto);
         console.log(subTotal);
         console.log(carro);
         alert("la suma de lo acumulado es: $"+subTotal);
+
+        
     }
 
 
