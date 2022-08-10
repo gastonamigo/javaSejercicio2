@@ -1,40 +1,49 @@
-let productos = prompt("Ingrese la cantidad de productos");
+const lista = [{
+    nombre: "ender 3 ProV2",
+    precio: "52000"
+},
+{
+    nombre: "ender 2 Pro",
+    precio: "35000"
+},
+{
+    nombre: "cr10 V2 Pro",
+    precio: "75000"
+},
+{
+    nombre: "cr5 Pro",
+    precio: "105000"
+},
+];
+let producto = 0;
+let subTotal=0;
 
-let cantidadProductos = parseInt(productos);
+console.log(lista);
+const carro=[];
 
-if (cantidadProductos > 0) {
+while (producto != "NO") {
 
-  costoEnvio(cantidadProductos);
-
-  function costoEnvio(cantidad) {
-    
-    let valorEnvio1 = 450;
-    let valorEnvio2 = 650;
-    let total=0;
-    for (let i = 1; i <= cantidad; i++) {
-      let alto = parseInt(prompt("Ingrese Alto del paquete N°"+i+": "));
-      let ancho = parseInt(prompt("Ingrese Ancho del paquete N°"+i+": "));
-      let largo = parseInt(prompt("Ingrese largo del paquete N°"+i+": "));
-
-
-      if ((alto * ancho * largo) <= 6000) {
-
-        total = total + valorEnvio1;
-
-      } else if ((alto * ancho * largo) > 6000) {
-        total = total + valorEnvio2;
-
-      }
-      
+producto = prompt("ingrese el numero del prodructo que desea agregar a la lista Si no desea agregar otro producto escriba NO");
+producto = parseInt(producto);
+   let total = agregaCarrito (producto);   
+           
     }
-    alert("El Costo de envio por todos los productos es: $" + total);
+
+    function agregaCarrito(posicion) {
+    
+        carro.push(lista[posicion-1]);
+        subTotal += parseInt(lista[posicion-1].precio);
+        
+        
+        console.log(subTotal);
+        console.log(carro);
+        alert("la suma de lo acumulado es: $"+subTotal);
+    }
 
 
-  }
+    
 
 
 
-} else {
-  alert("Ingrese al menos un producto")
-}
+
 
